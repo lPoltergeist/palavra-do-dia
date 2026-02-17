@@ -41,4 +41,3 @@ export async function textToSpeech(verse: any, datakey: string) {
 
     return blob.url;
 }
-

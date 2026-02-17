@@ -1,13 +1,14 @@
 import { cn } from '@/lib/utils'
 import { getVerseOfTheDay } from '@/lib/bibleVerse'
 import VerseActions from '../VerseActions/VerseActions'
+import PlayVerseAudio from '../PlayVerseAudio/PlayVerseAudio'
 
 interface VerseCardProps {
     className?: string
 }
 
 const VerseCard = async ({ className }: VerseCardProps) => {
-    const verse: any = await getVerseOfTheDay()
+    const { audioUrl, ...verse }: any = await getVerseOfTheDay()
 
     return (
         <div className="flex flex-col items-center gap-6">
@@ -34,7 +35,7 @@ const VerseCard = async ({ className }: VerseCardProps) => {
                 <h2 className="text-stone-500 font-sans text-xs md:text-sm tracking-[0.3em] uppercase">
                     — {verse.book.name} {verse.chapter}:{verse.number}
                 </h2>
-
+                <PlayVerseAudio audioUrl={audioUrl} />
             </section>
 
             <VerseActions verse={verse} />
