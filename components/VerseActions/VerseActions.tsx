@@ -9,10 +9,6 @@ const VerseActions = ({ verse }: any) => {
                 <Heart size={22} strokeWidth={1.5} />
             </button>
 
-            <button className="flex items-center gap-2 px-8 py-4 bg-[#262626] text-white rounded-full font-medium hover:bg-black transition-all duration-300 shadow-xl shadow-black/20 group cursor-pointer">
-                <span>Novo Versículo</span>
-            </button>
-
             <button onClick={() => shareVerse(verse)} className="flex items-center justify-center w-14 h-14 rounded-full border text-blue-500 border-blue-600 hover:bg-blue-50 transition-all duration-300 shadow-sm cursor-pointer">
                 <Share2 size={22} strokeWidth={1.5} />
             </button>

@@ -35,6 +35,7 @@ export async function textToSpeech(verse: any, datakey: string) {
         outputFormat: 'mp3_44100_128',
         voiceSettings: {
             stability: 0.35,
+            speed: 0.70,
             similarityBoost: 0.80,
             style: 0.0,
             useSpeakerBoost: true

@@ -35,7 +35,9 @@ const VerseCard = async ({ className }: VerseCardProps) => {
                 <h2 className="text-stone-500 font-sans text-xs md:text-sm tracking-[0.3em] uppercase">
                     — {verse.book.name} {verse.chapter}:{verse.number}
                 </h2>
-                <PlayVerseAudio audioUrl={audioUrl} />
+                <div className="flex items-center justify-center mt-6">
+                    <PlayVerseAudio audioUrl={audioUrl} />
+                </div>
             </section>
 
             <VerseActions verse={verse} />
