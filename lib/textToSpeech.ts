@@ -1,5 +1,5 @@
 import { ElevenLabsClient, play } from '@elevenlabs/elevenlabs-js';
-import { put } from '@vercel/blob';
+import { list, put } from '@vercel/blob';
 import { Readable } from 'stream';
 
 async function streamToBuffer(stream: ReadableStream): Promise<Buffer> {
@@ -16,6 +16,16 @@ async function streamToBuffer(stream: ReadableStream): Promise<Buffer> {
 }
 
 export async function textToSpeech(verse: any, datakey: string) {
+    const fileName = `verse/audio-${datakey}.mp3`;
+
+    const { blobs } = await list();
+
+    const existingBlob = blobs.find((blob: any) => blob.name === fileName);
+
+    if (existingBlob) {
+        return existingBlob.url;
+    }
+
     const elevenlabs = new ElevenLabsClient({
         apiKey: process.env.ELEVEN_LABS_KEY || '',
     });
