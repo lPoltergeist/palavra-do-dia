@@ -1,5 +1,6 @@
 import { VerseDTO } from '@/DTO/verseDTO';
 import { unstable_cache } from 'next/cache';
+import { textToSpeech } from './textToSpeech';
 
 async function fetchValidVerse() {
     let verse = {} as VerseDTO;
@@ -25,7 +26,15 @@ async function fetchValidVerse() {
 
 export const getVerseOfTheDay = unstable_cache(
     async () => {
-        return await fetchValidVerse();
+        const verse = await fetchValidVerse();
+        const todayKey = new Date().toISOString().split('T')[0];
+
+        const audioUrl = await textToSpeech(verse.text, todayKey);
+
+        return {
+            ...verse,
+            audioUrl,
+        };
     },
     ['daily-verse-key'],
     {
