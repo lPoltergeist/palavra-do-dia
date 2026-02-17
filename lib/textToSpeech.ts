@@ -19,7 +19,7 @@ export async function textToSpeech(verse: any, datakey: string) {
     const elevenlabs = new ElevenLabsClient({
         apiKey: process.env.ELEVEN_LABS_KEY || '',
     });
-    const audio = await elevenlabs.textToSpeech.convert('pNInz6obpgDQGbcicfTE', {
+    const audio = await elevenlabs.textToSpeech.convert('JBFqnCBsd6RMkjVDRZzb', {
         text: verse,
         modelId: 'eleven_multilingual_v2',
         outputFormat: 'mp3_44100_128',
