@@ -8,8 +8,8 @@ export const Navbar = () => {
                     <li className='uppercase'><a href="/">A Palavra do Dia</a></li>
                     <div className="flex items-center gap-4">
                         <li><a href="/about">Sobre</a></li>
-                        {/* <li>.</li>
-                        <li><a href="/contact">Contact</a></li> */}
+                        <li>.</li>
+                        <li><a href="/contact">Salvos</a></li>
                     </div>
                 </ul>
             </nav>

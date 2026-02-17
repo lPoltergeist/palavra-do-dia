@@ -1,5 +1,3 @@
-'use client' // Precisamos de interação no client para o horário
-import { useThemeTime } from '../Hooks/useThemeTime'
 import { Geist, Lora } from "next/font/google"
 import './globals.css'
 
@@ -17,11 +15,10 @@ const lora = Lora({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const themeClass = useThemeTime()
 
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${lora.variable} ${themeClass} transition-colors duration-1000 ease-in-out min-h-screen`}>
+      <body className={`${geistSans.variable} ${lora.variable} bg-[#e4e0d5] transition-colors duration-1000 ease-in-out min-h-screen`} suppressHydrationWarning>
         {children}
       </body>
     </html>
